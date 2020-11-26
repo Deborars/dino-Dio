@@ -9,10 +9,6 @@ body{
   background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
 }
 
-.background{
-  background: url("./image/background-color.png") center/cover no-repeat;
-  height: 200px;
-}
 
 .dino{
   width: 60px;

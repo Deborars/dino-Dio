@@ -2,8 +2,39 @@ const dino = document.querySelector(".dino");
 
 function handleKeyUp(event){
   if(event.keyCode === 32){
-    console.log("backspace");""
+    jump();
   }
 }
 
+function jump(){
+  let position = 0;
+  //inicio de upInterval
+  let upInterval = setInterval(
+    function(){
+      if(position >= 150){
+        clearInterval(upInterval);
+
+        //descendo
+        let downInterval = setInterval(
+          function(){
+            if(position <= 0 ){
+              clearInterval(downInterval);
+            }
+            else{
+              position -= 20;
+              dino.style.bottom = position +"px";
+            }
+          }
+          ,20)
+      }
+      else{
+        //subindo
+        position+=20;
+        dino.style.bottom = position+"px";
+      }
+},20)
+//fim da upInterval
+}
+
 document.addEventListener("keyup", handleKeyUp);
+
